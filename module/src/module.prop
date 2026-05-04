@@ -1,5 +1,5 @@
 id=${moduleId}
-name=${moduleName}
+name=ReZygisk, but rainy messed it up
 version=${versionName}
 versionCode=${versionCode}
 author=The PerformanC Organization

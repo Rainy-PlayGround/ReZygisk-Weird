@@ -75,7 +75,6 @@ $(MODULE_DONE): $(LOADER_DONE) $(ZYGISKD_DONE) $(MODULE_INPUTS)
 
 	@echo "Customizing module.prop..."
 	@sed -e 's/$${moduleId}/$(MODULE_ID)/g'                                             \
-	    -e 's/$${moduleName}/$(MODULE_NAME)/g'                                          \
 	    -e 's/$${versionName}/$(VER_NAME) ($(VER_CODE)-$(COMMIT_HASH)-$(BUILD_TYPE))/g' \
 	    -e 's/$${versionCode}/$(VER_CODE)/g'                                            \
 	    module/src/module.prop > $(MODULE_OUT)/module.prop
