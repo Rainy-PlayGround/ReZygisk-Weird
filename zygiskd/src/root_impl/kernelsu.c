@@ -145,7 +145,7 @@ void ksu_get_existence(struct root_impl_state *state) {
 
 
   // INFO: Force disable kernel umount when RZ umount is enabled
-  if (access("/data/adb/rezygisk/enable_umount", F_OK) != -1) {
+  if (access("/data/adb/rezygisk_enable_umount", F_OK) == 0) {
     struct ksu_set_feature_cmd cmd = {
       .feature_id = 1, /* INFO: kernel_umount */
       .value = 0
