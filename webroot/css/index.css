@@ -32,8 +32,8 @@ body {
   letter-spacing: 0.03em;
 
   /* INFO: WebUI X insets */
-  padding-top: var(--window-inset-top);
-  padding-bottom: var(--window-inset-bottom);
+  margin-top: var(--window-inset-top);
+  margin-bottom: var(--window-inset-bottom);
 }
 
 a {
