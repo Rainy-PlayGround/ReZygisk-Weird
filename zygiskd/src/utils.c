@@ -669,6 +669,13 @@ bool umount_root(struct root_impl impl) {
   /* INFO: We are already in the target pid mount namespace, so actually,
              when we use self here, we meant its pid.
   */
+
+  // INFO: This code is supposed to disable RZ umount when the file not
+  // exist, idk if this works but it needs more experiment
+  if (access("/data/adb/rezygisk/enable_umount", F_OK) == -1) {
+    return true;
+  }
+
   struct mountinfos mounts;
   if (!parse_mountinfo("self", &mounts)) {
     LOGE("Failed to parse mountinfo");
