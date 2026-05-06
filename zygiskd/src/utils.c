@@ -673,7 +673,7 @@ bool umount_root(struct root_impl impl) {
   // INFO: This code is supposed to disable RZ umount when the file not
   // exist, idk if this works but it needs more experiment
   if (access("/data/adb/rezygisk_enable_umount", F_OK) == -1) {
-    return true;
+    return false;
   }
 
   struct mountinfos mounts;
