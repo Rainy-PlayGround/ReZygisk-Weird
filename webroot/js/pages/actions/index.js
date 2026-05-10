@@ -75,11 +75,14 @@ export async function load() {
   })
 
   umount_switch.addEventListener('click', (e) => {
-		if (e.checked) {
-			exec('rm -f /data/adb/rezygisk_disable_umount')
-		} else {
-			exec('touch /data/adb/rezygisk_disable_umount')
-		}
+	const getNewUmountStatus = await exec(`[[ -e '/data/adb/rezygisk_disable_umount' ]]`)
+	if (getUmountStatus.errno == 0) {
+	  toast('ReZygisk Umount now enabled! Reboot to apply!')
+	  exec('rm -f /data/adb/rezygisk_disable_umount')
+	} else {
+      toast('ReZygisk Umount now disabled! Reboot to apply!')
+	  exec('touch /data/adb/rezygisk_disable_umount')
+	}
   })
 
   return;
