@@ -74,7 +74,7 @@ export async function load() {
     exec('/data/adb/modules/rezygisk/bin/zygisk-ptrace64 ctl stop')
   })
 
-  umount_switch.addEventListener('click', (e) => {
+  umount_switch.addEventListener('click', async (e) => {
 		const getNewUmountStatus = await exec(`[[ -e '/data/adb/rezygisk_disable_umount' ]]`)
 		if (getUmountStatus.errno == 0) {
 		  toast('ReZygisk Umount now enabled! Reboot to apply!')
